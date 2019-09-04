@@ -29,6 +29,7 @@
     {{dayForWeek}}
     <Button type="primary" @click="openModal">請點選</Button>
     <Button type="primary" @click="consoleIsModalOpen">aaa</Button>
+    <Button type="warning" @click="consoleOfApi">按一下</Button>
     <Modal v-model="isModalOpen" :mask-closable="false" :closable="true"> <!--:mask-closable 是否允许点击遮罩层关闭 ||:closable 是否显示右上角的关闭按钮，关闭后 Esc 按键也将关闭-->
       {{dayForWeek}}
     </Modal>
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+import { api } from '@/api'
 export default{
   data () {
     return {
@@ -179,6 +181,14 @@ export default{
       this.$router.push({
         path: this.page[to]
       })
+    },
+    async consoleOfApi () {
+      try {
+        const res = await api.get('activity/getActivity')
+        console.log(res)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }

@@ -15,6 +15,9 @@
             <MenuItem name="4" id="helloworld">
               Go back to HelloWorld
             </MenuItem>
+            <MenuItem name="5" id="tablerender">
+              Go to TableRender
+            </MenuItem>
           </MenuGroup>
         </Menu>
         <transition name="fade-transform" mode="out-in">
@@ -43,8 +46,6 @@
 
 <script>
 import { api } from '@/api'
-import { Promise, reject } from 'q'
-import { resolve } from 'url'
 export default {
   data () {
     return {
@@ -101,7 +102,8 @@ export default {
         1: '/store',
         2: '/movie',
         3: '/tibame',
-        4: '/'
+        4: '/',
+        5: '/tablerender'
       }
     }
   },
@@ -126,12 +128,12 @@ export default {
       // console.log(to)
     },
     async cosoleOfApi () {
-      return this.api
-    },
-    test () {
-      return new Promise((resolve, reject) => {
-        resolve(console.log('成功了!!'))
-      })
+      try {
+        const res = await api.get('/activity/getActivity')
+        console.log(res)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
@@ -152,6 +154,10 @@ export default {
 }
 #helloworld {
   background-color: #DDDD;
+  border:1px solid #000;
+}
+#tablerender {
+  background-color: #FF5511;
   border:1px solid #000;
 }
 router-link:hover{

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Layout>
       <Menu active-name="1" @on-select="goTo">
         <MenuGroup title="内容管理">
           <MenuItem name="1" id="store">
@@ -19,11 +20,14 @@
           </MenuItem>
         </MenuGroup>
       </Menu>
+      <Layout>
         <Content :style="{padding: '0 16px 16px'}">
           <Card>
             <Table :columns="columns1" :data="data1"></Table>
           </Card>
         </Content>
+      </Layout>
+    </Layout>
   </div>
 </template>
 
@@ -33,47 +37,40 @@ export default {
     return {
       columns1: [
         {
-          title: '電影',
-          key: 'movie'
+          title: '店名',
+          key: 'store_name'
         },
         {
           title: '類型',
           key: 'type'
         },
         {
-          title: '上映日期',
-          key: 'date'
+          title: '地址',
+          key: 'address'
         },
         {
-          title: '推薦',
-          key: 'recommend'
-        },
-        {
-          title: '備註',
-          key: 'remark'
+          title: '評分',
+          key: 'score'
         }
       ],
       data1: [
         {
-          movie: '牠 第二章',
-          type: '恐怖',
-          date: '2019-09-05',
-          recommend: '★★★★★',
-          remark: '聽說鰻恐怖的！'
+          store_name: 'KFC',
+          type: '速食',
+          address: '103台北市大同區承德路一段38號',
+          score: '★★★★☆'
         },
         {
-          movie: '生日幻境',
-          type: '動畫',
-          date: '2019-09-06',
-          recommend: '★★★☆☆',
-          remark: '日本動畫'
+          store_name: '蜂巢 Bee House',
+          type: '旅宿',
+          address: '103台北市大同區太原路57號',
+          score: '★★★★★'
         },
         {
-          movie: '返校',
-          type: '懸疑',
-          date: '2019-09-20',
-          recommend: '★★★★★',
-          remark: '蠻夯的，想看！'
+          store_name: '京站時尚廣場 Q Square',
+          type: '購物廣場',
+          address: '103台北市大同區承德路一段1號',
+          score: '★★☆☆☆'
         }
       ],
       page: {

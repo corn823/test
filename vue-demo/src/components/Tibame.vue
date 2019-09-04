@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Layout>
       <Menu active-name="1" @on-select="goTo">
         <MenuGroup title="内容管理">
           <MenuItem name="1" id="store">
@@ -15,16 +14,16 @@
           <MenuItem name="4" id="helloworld">
             Go back to HelloWorld
           </MenuItem>
+          <MenuItem name="5" id="tablerender">
+            Go to TableRender
+          </MenuItem>
         </MenuGroup>
       </Menu>
-      <Layout>
         <Content :style="{padding: '0 16px 16px'}">
           <Card>
             <Table :columns="columns1" :data="data1"></Table>
           </Card>
         </Content>
-      </Layout>
-    </Layout>
   </div>
 </template>
 
@@ -96,7 +95,8 @@ export default {
         1: '/store',
         2: '/movie',
         3: '/tibame',
-        4: '/'
+        4: '/',
+        5: '/tablerender'
       }
     }
   },
@@ -127,6 +127,10 @@ export default {
 }
 #helloworld{
   background-color: #DDDDDD;
+  border:1px solid #000;
+}
+#tablerender {
+  background-color: #FF5511;
   border:1px solid #000;
 }
 router-link:hover{

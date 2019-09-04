@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Store from '@/components/Store'
 import Movie from '@/components/Movie'
 import Tibame from '@/components/Tibame'
+import TableRender from '@/components/TableRender'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/tibame',
       name: 'Tibame',
       component: Tibame
+    },
+    {
+      path: '/tablerender',
+      name: 'TableRender',
+      conponent: TableRender
     }
   ]
 })
